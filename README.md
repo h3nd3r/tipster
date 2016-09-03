@@ -33,11 +33,11 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-A few odd compiler and run time errors such as:
+I ran into a few odd compiler and run time errors that I inadvertently introduced into the project such as:
   "Terminating app due to uncaught exception 'NSUnknownKeyException', 
   reason: '[ setValue:forUndefinedKey:]: this class is not key value 
   coding-compliant for the key..."
-due to dead IBOutlets, etc.
+Overall I found the tutorial and instructions to be very good!
 
 ## License
 
