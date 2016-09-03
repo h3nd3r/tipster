@@ -15,6 +15,7 @@
 		1A2E37A31D7A86420007DDB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A2E37A11D7A86420007DDB8 /* LaunchScreen.storyboard */; };
 		1A2E37AE1D7A86420007DDB8 /* tipsterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E37AD1D7A86420007DDB8 /* tipsterTests.swift */; };
 		1A2E37B91D7A86420007DDB8 /* tipsterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E37B81D7A86420007DDB8 /* tipsterUITests.swift */; };
+		1A2E37C71D7AA7F90007DDB8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E37C61D7AA7F90007DDB8 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		1A2E37B41D7A86420007DDB8 /* tipsterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tipsterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A2E37B81D7A86420007DDB8 /* tipsterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tipsterUITests.swift; sourceTree = "<group>"; };
 		1A2E37BA1D7A86420007DDB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A2E37C61D7AA7F90007DDB8 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				1A2E37951D7A86420007DDB8 /* AppDelegate.swift */,
 				1A2E37971D7A86420007DDB8 /* ViewController.swift */,
 				1A2E37991D7A86420007DDB8 /* Main.storyboard */,
+				1A2E37C61D7AA7F90007DDB8 /* SettingsViewController.swift */,
 				1A2E379F1D7A86420007DDB8 /* Assets.xcassets */,
 				1A2E37A11D7A86420007DDB8 /* LaunchScreen.storyboard */,
 				1A2E37A41D7A86420007DDB8 /* Info.plist */,
@@ -262,6 +265,7 @@
 				1A2E37981D7A86420007DDB8 /* ViewController.swift in Sources */,
 				1A2E37961D7A86420007DDB8 /* AppDelegate.swift in Sources */,
 				1A2E379E1D7A86420007DDB8 /* tipster.xcdatamodeld in Sources */,
+				1A2E37C71D7AA7F90007DDB8 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

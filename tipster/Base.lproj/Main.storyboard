@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Xhf-Yj-i05">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -81,7 +81,13 @@
                             <outletCollection property="gestureRecognizers" destination="PV5-Iv-pe2" appends="YES" id="ViV-6U-CEJ"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Tip Calculator" id="bwm-Al-WQl"/>
+                    <navigationItem key="navigationItem" title="Tip Calculator" id="bwm-Al-WQl">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="GtQ-Go-Vde" userLabel="Settings">
+                            <connections>
+                                <segue destination="dgS-QM-RxA" kind="push" id="edE-1z-6Mg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="billField" destination="1Q9-gG-RNb" id="zbz-WG-ATR"/>
                         <outlet property="tipControl" destination="rRs-gA-9RM" id="VLZ-OF-Atf"/>
@@ -97,6 +103,46 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1212" y="321"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="9Qi-YC-IES">
+            <objects>
+                <viewController id="dgS-QM-RxA" customClass="SettingsViewController" customModule="tipster" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="D50-4K-qGH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default Tip" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aeb-M1-aze">
+                                <rect key="frame" x="0.0" y="105" width="320" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="Yb3-JH-MNZ">
+                                <rect key="frame" x="40" y="168" width="240" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="15%"/>
+                                    <segment title="18%"/>
+                                    <segment title="20%"/>
+                                </segments>
+                                <connections>
+                                    <action selector="calculateTip:" destination="BYZ-38-t0r" eventType="valueChanged" id="X1R-Pv-qGq"/>
+                                    <action selector="tipDidChange:" destination="dgS-QM-RxA" eventType="valueChanged" id="hqL-S0-eOg"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Cw1-uS-VcM"/>
+                    <connections>
+                        <outlet property="tipControl" destination="Yb3-JH-MNZ" id="6sH-wN-iJr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fUl-57-kAH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1706" y="321"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sOH-Ob-yMb">

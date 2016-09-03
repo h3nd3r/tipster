@@ -16,10 +16,37 @@ class ViewController: UIViewController {
     @IBOutlet weak var tipControl: UISegmentedControl!
     
     override func viewDidLoad() {
+        print("%s", #function)
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
     }
 
+    override func viewWillAppear(animated: Bool) {
+        print("%s", #function)
+        super.viewWillAppear(animated)
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        tipControl.selectedSegmentIndex = defaults.integerForKey("tipControl")
+        
+        calculateTip(self)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        print("%s", #function)
+        super.viewDidAppear(animated)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        print("%s", #function)
+        super.viewWillDisappear(animated)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        print("%s", #function)
+        super.viewDidDisappear(animated)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
