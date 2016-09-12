@@ -4,7 +4,7 @@ tipster is a tip calculator application for iOS.
 
 Submitted by: Sara Hender
 
-Time spent: 1.25 hours spent in total
+Time spent: 2.25 hours spent in total
 
 ## User Stories
 
@@ -17,27 +17,24 @@ The following **optional** features are implemented:
 * [ ] UI animations
 * [ ] Remembering the bill amount across app restarts (if <10mins)
 * [ ] Using locale-specific currency and currency thousands separators.
-* [ ] Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
+* [X] Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
+- [X] Disable keyboard animation
+- [X] Light/Dark theme available in Settings
 
 ## Video Walkthrough 
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/Rptmwwk.gif' title='Video Walkthrough' width='318' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/2h56CJ5.gif' title='Video Walkthrough' width='318' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-I ran into a few odd compiler and run time errors that I inadvertently introduced into the project such as:
-  "Terminating app due to uncaught exception 'NSUnknownKeyException', 
-  reason: '[ setValue:forUndefinedKey:]: this class is not key value 
-  coding-compliant for the key..."
-Overall I found the tutorial and instructions to be very good!
+This works best for iPhone 5 in the Portrait orientation. The layout won't look nice on other iPhones with larger or smaller screens.
 
 ## License
 
