@@ -490,6 +490,7 @@
 				1A2E37BF1D7A86420007DDB8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1A2E37C01D7A86420007DDB8 /* Build configuration list for PBXNativeTarget "tipsterTests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +499,7 @@
 				1A2E37C21D7A86420007DDB8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1A2E37C31D7A86420007DDB8 /* Build configuration list for PBXNativeTarget "tipsterUITests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +508,7 @@
 				1A2E37C51D7A86420007DDB8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

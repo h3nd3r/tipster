@@ -10,19 +10,28 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var plusLabel: UILabel!
+    @IBOutlet weak var equalsLabel: UILabel!
     @IBOutlet weak var totalAmountLabel: UILabel!
     @IBOutlet weak var tipAmountLabel: UILabel!
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipControl: UISegmentedControl!
-    @IBOutlet weak var billLabel: UILabel!
-    @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
+    var screenSize: CGRect? = nil
     
     override func viewDidLoad() {
         print("%s", #function)
         super.viewDidLoad()
+        
+        screenSize = UIScreen.mainScreen().bounds
         billField.becomeFirstResponder()
         UIWindow.setAnimationsEnabled(false)
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.init(red: 42.0/255.0, green: 221.0/255.0, blue: 228.0/255.0, alpha: 1.0)
+
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(ViewController.keyboardShown(_:)), name: UIKeyboardDidShowNotification, object: nil)
+        
         
         let defaults = NSUserDefaults.standardUserDefaults()
         let theme = defaults.boolForKey("theme")
@@ -44,10 +53,28 @@ class ViewController: UIViewController {
         print("theme: \(theme)")
     }
     
+    @IBAction func billChanged(sender: UITextField) {
+        print("%s", #function)
+    }
+
+    @IBAction func billFieldChanged(sender: UITextField) {
+        print("%s", #function)        
+    }
+    
+    @IBAction func outsideBillField(sender: AnyObject) {
+        print("%s", #function)         
+    }
     override func viewDidAppear(animated: Bool) {
         print("%s", #function)
         super.viewDidAppear(animated)
-        UIWindow.setAnimationsEnabled(false)
+        UIWindow.setAnimationsEnabled(true)
+    }
+    @IBAction func billEditBegin(sender: UITextField) {
+        print("%s", #function)
+    }
+    
+    @IBAction func billEditEnd(sender: UITextField) {
+        print("%s", #function)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -73,8 +100,11 @@ class ViewController: UIViewController {
         let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
         let total = bill + tip
         
-        tipAmountLabel.text = String(format: "$%.2f", tip)
+        tipAmountLabel.text = String(format: "%.2f", tip)
         totalAmountLabel.text = String(format: "$%.2f", total)
+        
+        equalsLabel.text? += "-"
+        
     }
 
     func keyboardShown(notification: NSNotification) {
@@ -88,27 +118,28 @@ class ViewController: UIViewController {
     }
     
     func updateColorScheme(color: Bool) {
+        var myBlue = UIColor.init(red: 42.0/255.0, green: 221.0/255.0, blue: 228.0/255.0, alpha: 1.0)
+        
         if color {
             self.view.backgroundColor = UIColor.blackColor()
             tipControl.tintColor = UIColor.grayColor()
             self.view.tintColor = UIColor.grayColor()
-            tipLabel.textColor = UIColor.whiteColor()
-            totalLabel.textColor = UIColor.whiteColor()
-            //billField.textColor = UIColor.whiteColor()
-            billLabel.textColor = UIColor.whiteColor()
-            tipAmountLabel.textColor = UIColor.whiteColor()
-            totalAmountLabel.textColor = UIColor.whiteColor()
+            billField.textColor = myBlue
+            tipAmountLabel.textColor = myBlue
+            totalAmountLabel.textColor = myBlue
+            equalsLabel.textColor = UIColor.whiteColor()
+            plusLabel.textColor = UIColor.whiteColor()
         }
         else {
-            self.view.backgroundColor = UIColor.whiteColor()
+            self.view.backgroundColor = myBlue
             self.view.tintColor = UIColor.grayColor()
             tipControl.tintColor = UIColor.grayColor()
-            tipLabel.textColor = UIColor.blackColor()
-            totalLabel.textColor = UIColor.blackColor()
-            //billField.textColor = UIColor.blackColor()
-            billLabel.textColor = UIColor.blackColor()
+            tipControl.backgroundColor = UIColor.whiteColor()
+            billField.textColor = UIColor.blackColor()
             tipAmountLabel.textColor = UIColor.blackColor()
             totalAmountLabel.textColor = UIColor.blackColor()
+            equalsLabel.textColor = UIColor.whiteColor()
+            plusLabel.textColor = UIColor.whiteColor()
         }
         
     }
