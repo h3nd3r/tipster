@@ -28,13 +28,13 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://imgur.com/r7koHgG' title='Video Walkthrough' width='318' alt='Video Walkthrough' />
+<img src='http://imgur.com/r7koHgG.png' title='Video Walkthrough' width='318' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-This works best for iPhone 5 in the Portrait orientation. The layout won't look nice on other iPhones with larger or smaller screens.
+This works best for iPhone 5 in the Portrait orientation.
 
 ## License
 
