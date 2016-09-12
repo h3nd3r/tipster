@@ -4,7 +4,7 @@ tipster is a tip calculator application for iOS.
 
 Submitted by: Sara Hender
 
-Time spent: 2.25 hours spent in total
+Time spent: 4.25 hours spent in total
 
 ## User Stories
 
@@ -28,7 +28,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/2h56CJ5.gif' title='Video Walkthrough' width='318' alt='Video Walkthrough' />
+<img src='http://imgur.com/r7koHgG' title='Video Walkthrough' width='318' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
