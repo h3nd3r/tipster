@@ -118,7 +118,7 @@ class ViewController: UIViewController {
     }
     
     func updateColorScheme(color: Bool) {
-        var myBlue = UIColor.init(red: 42.0/255.0, green: 221.0/255.0, blue: 228.0/255.0, alpha: 1.0)
+        let myBlue = UIColor.init(red: 42.0/255.0, green: 221.0/255.0, blue: 228.0/255.0, alpha: 1.0)
         
         if color {
             self.view.backgroundColor = UIColor.blackColor()
