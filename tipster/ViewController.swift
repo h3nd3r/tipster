@@ -64,10 +64,28 @@ class ViewController: UIViewController {
     @IBAction func outsideBillField(sender: AnyObject) {
         print("%s", #function)         
     }
+    
     override func viewDidAppear(animated: Bool) {
         print("%s", #function)
         super.viewDidAppear(animated)
         UIWindow.setAnimationsEnabled(true)
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        guard let billDate: NSDate = defaults.objectForKey("date") as! NSDate! else {
+            return
+        }
+        let bill = defaults.floatForKey("bill")
+        
+        let secondsBetween = billDate.timeIntervalSinceNow;
+        print(secondsBetween)
+        
+        if( secondsBetween <= 600) {
+            billField.text = String(bill)
+            calculateTip(NSDate)
+        }
+        defaults.synchronize()
+        
+        
     }
     @IBAction func billEditBegin(sender: UITextField) {
         print("%s", #function)
@@ -86,6 +104,14 @@ class ViewController: UIViewController {
     override func viewDidDisappear(animated: Bool) {
         print("%s", #function)
         super.viewDidDisappear(animated)
+        
+        print(NSDate())
+        
+        // save bill amount
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(NSDate() as AnyObject!, forKey: "date")
+        defaults.setObject(billField?.text as AnyObject!, forKey: "bill")
+        defaults.synchronize()
     }
     
     override func didReceiveMemoryWarning() {
