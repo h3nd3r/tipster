@@ -18,11 +18,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var tipControl: UISegmentedControl!
     @IBOutlet weak var totalLabel: UILabel!
     var screenSize: CGRect? = nil
+
     
     override func viewDidLoad() {
         print("%s", #function)
         super.viewDidLoad()
-        
+        tipControl.alpha = 0.0
         screenSize = UIScreen.mainScreen().bounds
         billField.becomeFirstResponder()
         UIWindow.setAnimationsEnabled(false)
@@ -37,6 +38,13 @@ class ViewController: UIViewController {
         let theme = defaults.boolForKey("theme")
         updateColorScheme(theme)
         print("theme: \(theme)")
+        
+        let formatter: NSNumberFormatter = NSNumberFormatter()
+        formatter.numberStyle = .CurrencyStyle
+        formatter.locale = NSLocale.currentLocale()
+        billField.placeholder = formatter.currencySymbol
+        
+        billField.tintColor = UIColor.init(red: 221.0/255.0, green: 42.0/255.0, blue: 228.0/255.0, alpha: 1.0)
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -77,9 +85,9 @@ class ViewController: UIViewController {
         let bill = defaults.floatForKey("bill")
         
         let secondsBetween = billDate.timeIntervalSinceNow;
-        print(secondsBetween)
+        print("Seconds between: \(secondsBetween)")
         
-        if( secondsBetween <= 600) {
+        if( secondsBetween <= 0 && secondsBetween > -600) {
             billField.text = String(bill)
             calculateTip(NSDate)
         }
@@ -120,15 +128,26 @@ class ViewController: UIViewController {
     }
 
     @IBAction func calculateTip(sender: AnyObject) {
-        let tipPercentages = [0.15, 0.18, 0.2]
+        let formatter: NSNumberFormatter = NSNumberFormatter()
+        formatter.numberStyle = .CurrencyStyle
+        formatter.locale = NSLocale.currentLocale()
         
+        let tipPercentages = [0.15, 0.18, 0.2]
         let bill = Double(billField.text!) ?? 0
+        
+        print("Bill: \(bill)")
         let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
         let total = bill + tip
+
+
+        totalAmountLabel.text = formatter.stringFromNumber(total) // "$123.44"
         
+        //formatter.currencyDecimalSeparator
+        print("currency grouping separator: \(formatter.currencyGroupingSeparator)")
+        formatter.currencyCode = ""
+        //tipAmountLabel.text = formatter.stringFromNumber(tip)
+        //TODO put decimal to match localization
         tipAmountLabel.text = String(format: "%.2f", tip)
-        totalAmountLabel.text = String(format: "$%.2f", total)
-        
         equalsLabel.text? += "-"
         
     }
@@ -141,6 +160,18 @@ class ViewController: UIViewController {
         let keyboardFrame = view.convertRect(rawFrame, fromView: nil)
         
         print("keyboardFrame: \(keyboardFrame)")
+        // add in tipcontroller here
+        //tipControl.frame.size
+        let y = (screenSize?.size.height)! - keyboardFrame.height - tipControl.frame.height
+
+        // get rid of rounded edges
+        tipControl.frame = CGRectMake(-4, y, (screenSize?.size.width)! + 8, tipControl.frame.height)
+            
+        //animate in
+        UIView.animateWithDuration(0.5, animations: {
+            self.tipControl.alpha = 1.0
+        })
+
     }
     
     func updateColorScheme(color: Bool) {
@@ -149,6 +180,7 @@ class ViewController: UIViewController {
         if color {
             self.view.backgroundColor = UIColor.blackColor()
             tipControl.tintColor = UIColor.grayColor()
+            tipControl.backgroundColor = UIColor.whiteColor()
             self.view.tintColor = UIColor.grayColor()
             billField.textColor = myBlue
             tipAmountLabel.textColor = myBlue
